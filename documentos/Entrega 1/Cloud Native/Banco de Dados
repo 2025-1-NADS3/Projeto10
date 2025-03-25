@@ -1,0 +1,80 @@
+const express = require('express');
+const sqlite3 = require('sqlite3').verbose();
+const cors = require('cors');
+
+const app = express();
+const port = 3001;
+app.use(express.json());
+app.use(cors());
+
+// Conectar ao banco SQLite
+const db = new sqlite3.Database('./users.db', (err) => {
+    if (err) {
+        console.error(err.message);
+    } else {
+        console.log('Conectado ao banco SQLite.');
+    }
+});
+
+// Criar tabela de usuários se não existir
+db.run(`CREATE TABLE IF NOT EXISTS users (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL,
+    email TEXT UNIQUE NOT NULL
+)`);
+
+// Criar usuário (CREATE)
+app.post('/users', (req, res) => {
+    const { name, email } = req.body;
+    const sql = 'INSERT INTO users (name, email) VALUES (?, ?)';
+    db.run(sql, [name, email], function (err) {
+        if (err) {
+            res.status(400).json({ error: err.message });
+        } else {
+            res.json({ id: this.lastID, name, email });
+        }
+    });
+});
+
+// Listar usuários (READ)
+app.get('/users', (req, res) => {
+    const sql = 'SELECT * FROM users';
+    db.all(sql, [], (err, rows) => {
+        if (err) {
+            res.status(500).json({ error: err.message });
+        } else {
+            res.json(rows);
+        }
+    });
+});
+
+// Atualizar usuário (UPDATE)
+app.put('/users/:id', (req, res) => {
+    const { id } = req.params;
+    const { name, email } = req.body;
+    const sql = 'UPDATE users SET name = ?, email = ? WHERE id = ?';
+    db.run(sql, [name, email, id], function (err) {
+        if (err) {
+            res.status(400).json({ error: err.message });
+        } else {
+            res.json({ message: 'Usuário atualizado com sucesso' });
+        }
+    });
+});
+
+// Deletar usuário (DELETE)
+app.delete('/users/:id', (req, res) => {
+    const { id } = req.params;
+    const sql = 'DELETE FROM users WHERE id = ?';
+    db.run(sql, id, function (err) {
+        if (err) {
+            res.status(400).json({ error: err.message });
+        } else {
+            res.json({ message: 'Usuário removido com sucesso' });
+        }
+    });
+});
+
+app.listen(port, () => {
+    console.log(`Servidor rodando em http://localhost:${port}`);
+});
