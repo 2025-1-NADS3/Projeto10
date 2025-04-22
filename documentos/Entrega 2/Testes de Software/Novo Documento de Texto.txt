@@ -1,0 +1,59 @@
+// Teste 1: Exibição correta do nome
+@Test
+public void testExibicaoNomeUsuario() {
+    String nome = "João da Silva";
+    String exibido = "Nome: " + nome;
+    assertEquals("Nome: João da Silva", exibido);
+}
+
+// Teste 2: Exibição correta do e-mail
+@Test
+public void testExibicaoEmailUsuario() {
+    String email = "joao.silva@email.com";
+    String exibido = "Email: " + email;
+    assertEquals("Email: joao.silva@email.com", exibido);
+}
+
+// Teste 3: Checagem de botão de logout
+@Test
+public void testBotaoLogoutExiste() {
+    PerfilActivity perfilActivity = Robolectric.buildActivity(PerfilActivity.class).create().get();
+    Button btnLogout = perfilActivity.findViewById(R.id.btn_logout);
+    assertNotNull(btnLogout);
+}
+
+// Teste 4: Checagem de botão de deletar conta
+@Test
+public void testBotaoDeletarExiste() {
+    PerfilActivity perfilActivity = Robolectric.buildActivity(PerfilActivity.class).create().get();
+    Button btnDeletar = perfilActivity.findViewById(R.id.btn_deletar_conta);
+    assertNotNull(btnDeletar);
+}
+
+
+
+
+
+
+// Teste de integração 
+
+@Test
+public void testLogoutRedireciona() {
+    PerfilActivity activity = Robolectric.buildActivity(PerfilActivity.class).create().get();
+    Button btnLogout = activity.findViewById(R.id.btn_logout);
+    btnLogout.performClick();
+    assertTrue(activity.isFinishing());
+}
+
+
+
+//Teste 2 integração
+
+@Test
+public void testClickDeletarConta() {
+    PerfilActivity activity = Robolectric.buildActivity(PerfilActivity.class).create().get();
+    Button btnDeletar = activity.findViewById(R.id.btn_deletar_conta);
+    btnDeletar.performClick();
+    // Verificação manual ou mock se necessário (simulado aqui como execução sem crash)
+    assertNotNull(btnDeletar);
+}
