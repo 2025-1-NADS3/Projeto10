@@ -1,0 +1,77 @@
+from flask import Flask, request, jsonify
+from database import init_db
+from auth import hash_password, verify_password
+import sqlite3
+
+app = Flask(__name__)
+init_db()
+
+@app.route('/usuarios', methods=['POST'])
+def criar_usuario():
+    data = request.get_json()
+    nome = data['nome']
+    email = data['email']
+    senha = hash_password(data['senha'])
+
+    conn = sqlite3.connect('usuarios.db')
+    cursor = conn.cursor()
+    try:
+        cursor.execute("INSERT INTO usuarios (nome, email, senha) VALUES (?, ?, ?)", (nome, email, senha))
+        conn.commit()
+        return jsonify({'mensagem': 'Usuário criado com sucesso'}), 201
+    except sqlite3.IntegrityError:
+        return jsonify({'erro': 'Email já cadastrado'}), 400
+    finally:
+        conn.close()
+
+@app.route('/usuarios', methods=['GET'])
+def listar_usuarios():
+    conn = sqlite3.connect('usuarios.db')
+    cursor = conn.cursor()
+    cursor.execute("SELECT id, nome, email FROM usuarios")
+    usuarios = [{'id': row[0], 'nome': row[1], 'email': row[2]} for row in cursor.fetchall()]
+    conn.close()
+    return jsonify(usuarios)
+
+@app.route('/usuarios/<int:id>', methods=['PUT'])
+def atualizar_usuario(id):
+    data = request.get_json()
+    nome = data['nome']
+    email = data['email']
+    senha = hash_password(data['senha'])
+
+    conn = sqlite3.connect('usuarios.db')
+    cursor = conn.cursor()
+    cursor.execute("UPDATE usuarios SET nome=?, email=?, senha=? WHERE id=?", (nome, email, senha, id))
+    conn.commit()
+    conn.close()
+    return jsonify({'mensagem': 'Usuário atualizado com sucesso'})
+
+@app.route('/usuarios/<int:id>', methods=['DELETE'])
+def deletar_usuario(id):
+    conn = sqlite3.connect('usuarios.db')
+    cursor = conn.cursor()
+    cursor.execute("DELETE FROM usuarios WHERE id=?", (id,))
+    conn.commit()
+    conn.close()
+    return jsonify({'mensagem': 'Usuário deletado com sucesso'})
+
+@app.route('/login', methods=['POST'])
+def login():
+    data = request.get_json()
+    email = data['email']
+    senha = data['senha']
+
+    conn = sqlite3.connect('usuarios.db')
+    cursor = conn.cursor()
+    cursor.execute("SELECT senha FROM usuarios WHERE email=?", (email,))
+    row = cursor.fetchone()
+    conn.close()
+
+    if row and verify_password(senha, row[0]):
+        return jsonify({'mensagem': 'Login realizado com sucesso'})
+    else:
+        return jsonify({'erro': 'Email ou senha inválidos'}), 401
+
+if __name__ == '__main__':
+    app.run(debug=True)
