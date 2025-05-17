@@ -5,7 +5,7 @@
 </p>
 
 # Projeto criado para facilitar a gestão financeira acadêmica, tornando o pagamento e acesso a boletos mais prático e eficiente para os estudantes.
-## CGKM
+## EduPay
 
 ## Integrantes: <a href="https://www.linkedin.com/in/caua-william-967295247/">Caua William Barbieri Brandão</a>, <a href="https://www.linkedin.com/in/gabriel-orlandi-4b5ab22ab?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app">Gabriel Orlandi Portes</a>, <a href="https://www.linkedin.com/in/karoline-lemos-540461296">Karoline Lemos Avelar</a>, <a href="https://www.linkedin.com/in/matheus-santoro-34b7a7186?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app">Matheus Santoro Carriço Veiga</a>
 
