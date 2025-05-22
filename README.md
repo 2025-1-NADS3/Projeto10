@@ -58,12 +58,37 @@ Aplicativo mobile desenvolvido para facilitar o controle financeiro de estudante
 
 ---
 
-## 📱 Como Acessar o Aplicativo
+## 📁 Organização das Telas
 
-> ⚠ O APK final estará disponível para download ao final do projeto. Por enquanto, você pode rodar localmente via Android Studio:
+| Tela | Descrição |
+|------|-----------|
+| `LoginActivity.java` | Login do usuário com validação Firebase |
+| `CadastroActivity.java` | Cadastro com campos: nome completo, CPF, celular, data de nascimento, e-mail e senha |
+| `TelaPagamentosActivity.java` | Permite cadastrar e consultar pagamentos |
+| `TelaTrocaPontosActivity.java` | Lista produtos disponíveis para troca |
+| `TelaFeedbackActivity.java` | Envio de feedback com avaliação em estrelas |
+| `TelaEscolhaPagamentoActivity.java` | Escolha entre PIX, boleto ou cartão |
+| `TelaPixActivity.java`, `TelaBoletoActivity.java`, `TelaCartaoActivity.java` | Exibição dos dados conforme método escolhido |
+| `MainActivity.java` | Tela de boas-vindas e navegação principal |
 
-### ✔ Passo a passo:
+---
 
-1. **Clone o repositório**:
-```bash
-git clone https://github.com/seu-usuario/seu-repositorio.git
+## 🧠 Regras de Pontuação
+
+- Cada mensalidade paga = **+40 pontos**
+- Pontos acumulados podem ser trocados por produtos cadastrados no app
+
+---
+
+## 🔐 Segurança
+
+- Firebase Authentication para autenticação segura
+- Senhas criptografadas automaticamente via Firebase
+- Regras de segurança configuradas no Firebase Realtime Database
+
+---
+
+## 👥 Desenvolvedores
+
+Este projeto foi desenvolvido por alunos do curso de Análise e Desenvolvimento de Sistemas da **FECAP** – 3º semestre de 2025.
+
