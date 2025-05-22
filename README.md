@@ -92,3 +92,12 @@ Aplicativo mobile desenvolvido para facilitar o controle financeiro de estudante
 
 Este projeto foi desenvolvido por alunos do curso de Análise e Desenvolvimento de Sistemas da **FECAP** – 3º semestre de 2025.
 
+## 📚 Referências
+
+- [https://firebase.google.com/docs](https://firebase.google.com/docs)
+- [https://developer.android.com/docs](https://developer.android.com/docs)
+- [https://material.io/components](https://material.io/components)
+- [https://developer.android.com/training/data-storage/shared-preferences](https://developer.android.com/training/data-storage/shared-preferences)
+- [https://developer.android.com/guide/navigation](https://developer.android.com/guide/navigation)
+- [https://developer.android.com/studio](https://developer.android.com/studio)
+
