@@ -6,9 +6,7 @@
   </a>
 </p>
 
-# 💸 EduPay - Gestão Financeira Acadêmica
-
-Aplicativo mobile desenvolvido para facilitar o controle financeiro de estudantes universitários, com foco no acesso, download e pagamento de boletos de forma prática, rápida e segura. O projeto utiliza **Android Studio** e **Firebase** como base de autenticação, banco de dados e backend em nuvem.
+# 🍰 Cannoli - Gestão e Experiência Gastronômica
 
 ---
 
@@ -22,9 +20,10 @@ Aplicativo mobile desenvolvido para facilitar o controle financeiro de estudante
 ## 👨‍🏫 Professores Orientadores
 
 - [Aimar Martins Lopes](https://www.linkedin.com/in/aimarlopes/)
-- [Francisco Escobar](https://www.linkedin.com/in/francisco-escobar/)
-- [Vinicius Heltai](https://www.linkedin.com/in/vheltai/)
-- [Jefferson Silva](https://www.linkedin.com/in/jefferson-o-silva/)
+- [Eduardo Savino](https://www.linkedin.com/in/francisco-escobar/)
+- [Lucy Mary](https://www.linkedin.com/in/vheltai/)
+- [Edson Barbeiro](https://www.linkedin.com/in/jefferson-o-silva/)
+- [Ronaldo Araujo](https://www.linkedin.com/in/jefferson-o-silva/)
 
 ---
 
