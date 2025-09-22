@@ -89,7 +89,7 @@
 
 ## 👥 Desenvolvedores
 
-Este projeto foi desenvolvido por alunos do curso de Análise e Desenvolvimento de Sistemas da **FECAP** – 3º semestre de 2025.
+Este projeto foi desenvolvido por alunos do curso de Análise e Desenvolvimento de Sistemas da **FECAP** – 4º semestre de 2025.
 
 ## 📚 Referências
 
