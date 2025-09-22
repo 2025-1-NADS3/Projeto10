@@ -22,6 +22,7 @@
 
 <h3>👨‍💻 Integrantes:</h3>
 <ul>
+  <li>Adriano Xu Ming Hui</li>
   <li>Caua William Barbieri Brandão</li>
   <li>Gabriel Orlandi Portes</li>
   <li>Karoline Lemos Avelar</li>
